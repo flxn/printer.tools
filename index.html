@@ -1,41 +1,112 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
+  <title>Printer.tools | 3D Printing Tools for Makers</title>
+  <meta name="description" content="A collection of free and useful tools and resources for 3d printing.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="Printer.tools | 3D Printing Tools and Resources for Makers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://printer.tools">
+  <meta property="og:image" content="/img/icon.svg">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/all.css">
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="img/logo-full.png" alt="Printer.tools your home for 3d printing resources">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Welcome to printer.tools</h1>
+      <h2 class="subtitle">A collection of tools and resources for 3d printing</h2>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h3 class="title">Tools</h3>
+      <div class="tools-list">
+        <!-- Tool: qrcode2stl -->
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="img/qrcode2stl-screenshot.png" alt="Screenshot of the qrcode2stl">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">QR2STL</p>
+                <p class="subtitle is-6">QR Code and Spotify Code Generator</p>
+              </div>
+            </div>
+        
+            <div class="content">
+              Create custom 3d printable QR codes and Spotify codes with this generator.
+              <br/>
+              You can choose various types of QR codes like text, email or WiFi and customize the appearance of the 3d model.
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a href="/qrcode2stl" class="card-footer-item" target="_blank">Go To App</a>
+          </footer> 
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        If you want to see more of my stuff you can <a href="https://flxn.de" target="_blank"><i class="fa fa-link"></i> visit my website</a>
+        of follow me on
+        <a href="https://twitter.com/flxnde" target="_blank" rel="noopener nofollow"><i class="fab fa-twitter"></i> Twitter</a>
+        or on
+        <a href="https://github.com/flxn" target="_blank" rel="noopener nofollow"><i class="fab fa-github"></i> Github</a>.
+      </p>
+      <p>
+        If you want to support my projects you can
+        <a href="https://paypal.me/fstein42" target="_blank" rel="noopener nofollow">
+          <i class="fab fa-paypal"></i> Donate via PayPal
+        </a>
+        and help to keep the site up and running.
+      </p>
+      <p>
+        If you need help or have some great idea, you can write me a mail:
+        <a href="mailto:mail@flxn.de"><i class="fa fa-envelope"></i> mail@flxn.de</a>
+      </p>
+    </div>
+  </footer>
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  
 </body>
 
 </html>
