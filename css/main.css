@@ -5,9 +5,33 @@
 
 .tools-list>.card {
   width: 400px;
-  transition: box-shadow .2s;
+  transition: box-shadow 0.2s;
 }
 
 .tools-list>.card:hover {
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.2), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.25), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+
+.tools-list>.card .card-footer-item:before, .tools-list>.card .card-footer-item:after {
+  margin-top: -3px;
+  margin-right: 10px;
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tools-list>.card .card-footer-item:before {
+  content: '👉 ';
+}
+
+.tools-list>.card .card-footer-item:after {
+  content: ' 👈';
+}
+
+.tools-list>.card:hover .card-footer-item:before, .tools-list>.card:hover .card-footer-item:after {
+  opacity: 1;
+}
+
+.navbar-item img {
+  max-height: 2.5rem;
 }
