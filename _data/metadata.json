@@ -1,0 +1,20 @@
+{
+  "title": "Printer.tools - 3D Printing Resources for Makers",
+  "url": "https://printer.tools/",
+  "description": "A collection of useful tools and resources for 3d printing",
+  "feed": {
+    "subtitle": "A collection of useful tools and resources for 3d printing",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://printer.tools/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://printer.tools/feed/feed.json"
+  },
+  "author": {
+    "name": "Your Name Here",
+    "email": "mail@flxn.de",
+    "url": "https://printer.tools/about/"
+  }
+}

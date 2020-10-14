@@ -1,0 +1,99 @@
+---
+layout: layouts/home.njk
+---
+
+<section class="section">
+  <div class="container">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <img src="{{ '/img/icon.svg' | url }}" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <h1 class="title">Welcome to
+          <strong style="font-weight: bold">printer.tools</strong>
+        </h1>
+        <h2 class="subtitle">A collection of useful tools and resources for 3d printing</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title is-clearfix">
+        <span class="title"><i class="fas fa-tools"></i> Tools</span>
+        <a class="button is-info is-light is-pulled-right" href="https://github.com/flxn/printer.tools/issues/new?assignees=&labels=&template=suggestion-template.md&title=Add%20Tool:%20[ENTER%20TITLE]" target="_blank" rel="noopener nofollow">
+          <span class="icon"><i class="fas fa-plus"></i></span> <span>Suggest New Tool</span>
+        </a>
+      </div>
+      <div class="resource-list">
+        {% for resource in collections.tools %}
+          <a href="{{ resource.data.url | url }}" class="card-footer-item" target="_blank" rel="noopener nofollow">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="{{ resource.data.thumbnail | url }}" alt="Screenshot of {{ resource.data.title }}">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img src="{{ resource.data.iconUrl | url }}" alt="{{ resource.data.title }} icon">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">{{ resource.data.title }}</p>
+                    <p class="subtitle is-6">{{ resource.data.subtitle }}</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  {{ resource.data.description }}
+                </div>
+              </div>
+              <footer class="card-footer"></footer>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title is-clearfix">
+          <span class="title"><i class="fas fa-book"></i> Other Resources</span>
+          <a class="button is-info is-light is-pulled-right" href="https://github.com/flxn/printer.tools/issues/new?assignees=&labels=&template=suggestion-template.md&title=Add%20Resource:%20[ENTER%20TITLE]" target="_blank" rel="noopener nofollow">
+            <span class="icon"><i class="fas fa-plus"></i></span> <span>Suggest New Resource</span>
+          </a>
+        </div>
+        <div class="resource-list">
+          {% for resource in collections.resources %}
+            <a href="{{ resource.data.url | url }}" class="card-footer-item" target="_blank" rel="noopener nofollow">
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img src="{{ resource.data.iconUrl | url }}" alt="{{ resource.data.title }} icon">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">{{ resource.data.title }}</p>
+                      <p class="subtitle is-6">{{ resource.data.subtitle }}</p>
+                    </div>
+                  </div>
+
+                  <div class="content">
+                    {{ resource.data.description }}
+                  </div>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>

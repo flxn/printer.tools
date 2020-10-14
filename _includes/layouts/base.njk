@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Printer.tools | 3D Printing Tools and Resources for Makers">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://printer.tools">
+    <meta property="og:image" content="/img/icon.svg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="{{ '/css/bulma.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/all.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
+
+    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+    <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+
+    <meta name="theme-color" content="#fafafa">
+
+  </head>
+  <body>
+    <header>
+      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{{ '/' | url }}">
+            <img src="{{ 'img/logo-full.png' | url }}" alt="Printer.tools your home for 3d printing resources">
+          </a>
+
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarMain" class="navbar-menu">
+          <div class="navbar-start">
+              {%- for entry in collections.all | eleventyNavigation %}
+              <a href="{{ entry.url | url }}" class="navbar-item{% if entry.url == page.url %} is-active{% endif %}">
+                {{ entry.title }}
+              </a>
+            {%- endfor %}
+          </div>
+
+          <!--<div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div>-->
+        </div>
+      </nav>
+    </header>
+
+    <main{% if templateclass %} class="{{ templateClass }}" {% endif %}>
+      {{ content | safe }}
+    </main>
+
+    <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        If you want to see more of my stuff you can <a href="https://flxn.de" target="_blank"><i class="fa fa-link"></i> visit my website</a>
+        of follow me on
+        <a href="https://twitter.com/flxnde" target="_blank" rel="noopener nofollow"><i class="fab fa-twitter"></i> Twitter</a>
+        or on
+        <a href="https://github.com/flxn" target="_blank" rel="noopener nofollow"><i class="fab fa-github"></i> Github</a>.
+      </p>
+      <p>
+        If you want to support my projects you can
+        <a href="https://paypal.me/fstein42" target="_blank" rel="noopener nofollow">
+          <i class="fab fa-paypal"></i> Donate via PayPal
+        </a>
+        and help to keep the site up and running.
+      </p>
+      <p>
+        If you need help or have some great idea, you can write me a mail:
+        <a href="mailto:mail@flxn.de"><i class="fa fa-envelope"></i> mail@flxn.de</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//analytics.flxn.de/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', '6']);
+      _paq.push(['setSecureCookie', location.protocol === 'https:']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+
+    <!-- Current page: {{ page.url | url }} -->
+  </body>
+</html>

@@ -1,35 +1,22 @@
 .section {
-  background-image: repeating-radial-gradient(circle at center center, transparent 0px, transparent 13px,rgba(0,0,0,0.03) 13px, rgba(0,0,0,0.03) 24px,transparent 24px, transparent 62px,rgba(0,0,0,0.03) 62px, rgba(0,0,0,0.03) 96px),repeating-radial-gradient(circle at center center, rgb(255,255,255) 0px, rgb(255,255,255) 14px,rgb(255,255,255) 14px, rgb(255,255,255) 18px,rgb(255,255,255) 18px, rgb(255,255,255) 28px,rgb(255,255,255) 28px, rgb(255,255,255) 32px); 
+  background-image: repeating-radial-gradient(circle at center center, transparent 0px, transparent 13px,rgba(0,0,0,0.03) 13px, rgba(0,0,0,0.03) 24px,transparent 24px, transparent 62px,rgba(0,0,0,0.03) 62px, rgba(0,0,0,0.03) 96px),repeating-radial-gradient(circle at center center, rgb(255,255,255) 0px, rgb(255,255,255) 14px,rgb(255,255,255) 14px, rgb(255,255,255) 18px,rgb(255,255,255) 18px, rgb(255,255,255) 28px,rgb(255,255,255) 28px, rgb(255,255,255) 32px);
   background-size: 21px 21px;
 }
 
-.tools-list>.card {
+.resource-list>a {
   width: 400px;
+}
+
+.resource-list>a>.card {
   transition: box-shadow 0.2s;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid hsl(0, 0%, 90%);
 }
 
-.tools-list>.card:hover {
+.resource-list>a>.card:hover {
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.25), 0 0px 0 1px rgba(10, 10, 10, 0.02);
-}
-
-.tools-list>.card .card-footer-item:before, .tools-list>.card .card-footer-item:after {
-  margin-top: -3px;
-  margin-right: 10px;
-  margin-left: 10px;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.tools-list>.card .card-footer-item:before {
-  content: '👉 ';
-}
-
-.tools-list>.card .card-footer-item:after {
-  content: ' 👈';
-}
-
-.tools-list>.card:hover .card-footer-item:before, .tools-list>.card:hover .card-footer-item:after {
-  opacity: 1;
+  border: 1px solid hsl(204, 86%, 53%);
 }
 
 .navbar-item img {

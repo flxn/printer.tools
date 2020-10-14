@@ -1,2 +1,2 @@
 #!/bin/bash
-npm run build && rsync -avz --delete dist/ flxn:/var/www/printer.tools
+npx eleventy && rsync -avz --delete _site/ flxn:/var/www/printer.tools
