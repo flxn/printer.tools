@@ -1,7 +1,0 @@
-# humanstxt.org/
-# The humans responsible
-
-# TEAM
-
-    Felix Stein -- Owner -- @flxnde
-

@@ -7,14 +7,18 @@ layout: layouts/home.njk
     <div class="media">
       <div class="media-left">
         <figure class="image is-64x64">
-          <img src="{{ '/img/icon.svg' | url }}" alt="Placeholder image">
+          <img src="{{ '/img/icon.svg' | url }}" alt="printer.tools logo image">
         </figure>
       </div>
       <div class="media-content">
         <h1 class="title">Welcome to
           <strong style="font-weight: bold">printer.tools</strong>
         </h1>
-        <h2 class="subtitle">A collection of useful tools and resources for 3d printing</h2>
+        <h2 class="subtitle">A collection of useful tools and resources for 3d printing.</h2>
+        <p>
+          I created this site to serve as a startpage for my qrcode2stl generator but want to turn it into a curated collection of 3d printing topics.
+          <br>If you know of great tools, guides or other resources related to 3d printing, feel free to suggest them.
+        </p>
       </div>
     </div>
   </div>
@@ -45,7 +49,12 @@ layout: layouts/home.njk
                     </figure>
                   </div>
                   <div class="media-content">
-                    <p class="title is-4">{{ resource.data.title }}</p>
+                    <p class="title is-4 is-clearfix">
+                      {{ resource.data.title }}
+                      {% if 'flxn' in resource.data.tags %}
+                        <span class="icon is-pulled-right">⭐️</span>
+                      {% endif %}
+                    </p>
                     <p class="subtitle is-6">{{ resource.data.subtitle }}</p>
                   </div>
                 </div>
@@ -81,7 +90,12 @@ layout: layouts/home.njk
                       </figure>
                     </div>
                     <div class="media-content">
-                      <p class="title is-4">{{ resource.data.title }}</p>
+                      <p class="title is-4 is-clearfix">
+                      {{ resource.data.title }}
+                      {% if 'flxn' in resource.data.tags %}
+                        <span class="icon is-pulled-right">⭐️</span>
+                      {% endif %}
+                    </p>
                       <p class="subtitle is-6">{{ resource.data.subtitle }}</p>
                     </div>
                   </div>

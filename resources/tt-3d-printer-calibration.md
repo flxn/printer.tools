@@ -7,5 +7,6 @@ iconUrl: https://teachingtechyt.github.io/img/tt.png
 date: 2020-10-14
 tags:
   - calibration
+layout: layouts/resource.njk
 ---
 

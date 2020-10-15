@@ -22,3 +22,15 @@
 .navbar-item img {
   max-height: 2.5rem;
 }
+
+.tool-detail-card {
+  max-width: 600px;
+  margin: 4rem auto;
+  border-radius: 6px;
+}
+
+.resource-detail-card {
+  max-width: 600px;
+  margin: 4rem auto;
+  border-radius: 6px;
+}

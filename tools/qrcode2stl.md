@@ -5,7 +5,9 @@ description: Create custom 3D-printable tags from QR codes and Spotify codes wit
 date: 2020-10-01
 tags:
   - qrcode
+  - flxn
 iconUrl: https://printer.tools/qrcode2stl/apple-touch-icon.png
-thumbnail: img/resources/thumbnails/qr2stl.png
+thumbnail: /img/resources/thumbnails/qr2stl.png
 url: https://printer.tools/qrcode2stl
+layout: layouts/tool.njk
 ---

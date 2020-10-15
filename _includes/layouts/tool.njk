@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-tool
+---
+
+<div class="card tool-detail-card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="{{ thumbnail | url }}" alt="Screenshot of {{ title }}">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="{{ iconUrl | url }}" alt="{{ title }} icon">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{{ title }}</p>
+        <p class="subtitle is-6">{{ subtitle }}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      {{ description }}
+    </div>
+
+    <div class="content">
+      {{ content | safe }}
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="{{ url | url }}" class="card-footer-item" target="_blank" rel="noopener nofollow"><span class="icon"><i class="fas fa-link"></i></span> Go To {{ title }}</a>
+  </footer>
+</div>
