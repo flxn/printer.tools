@@ -32,9 +32,9 @@ layout: layouts/home.njk
           <span class="icon"><i class="fas fa-plus"></i></span> <span>Suggest New Tool</span>
         </a>
       </div>
-      <div class="resource-list">
+      <div class="resource-list is-clearfix">
         {% for resource in collections.tools %}
-          <a href="{{ resource.data.url | url }}" class="card-footer-item" target="_blank" rel="noopener nofollow">
+          <a href="{{ resource.data.url | url }}" target="_blank" rel="noopener nofollow">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
@@ -78,9 +78,9 @@ layout: layouts/home.njk
             <span class="icon"><i class="fas fa-plus"></i></span> <span>Suggest New Resource</span>
           </a>
         </div>
-        <div class="resource-list">
+        <div class="resource-list is-clearfix">
           {% for resource in collections.resources %}
-            <a href="{{ resource.data.url | url }}" class="card-footer-item" target="_blank" rel="noopener nofollow">
+            <a href="{{ resource.data.url | url }}" target="_blank" rel="noopener nofollow">
               <div class="card">
                 <div class="card-content">
                   <div class="media">
