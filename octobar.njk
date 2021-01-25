@@ -15,39 +15,66 @@ layout: layouts/home.njk
           <strong style="font-weight: bold">OctoBar</strong>
         </h1>
         <h2 class="subtitle">The perfect OctoPrint companion for macOS users.</h2>
-
-        <div class="columns">
-            <div class="column">
-                <div class="content">
-                    <p class="is-size-4 has-text-weight-bold">
-                        ⏳ OctoBar is a work in progress.
-                        <br><a href="https://docs.google.com/forms/d/e/1FAIpQLSfxtuVWq87_tqAVLiIgoMo0kpxgauCCDYsbpgPaGukIC1LfpQ/viewform?usp=sf_link" rel="noopener noreferrer nofollow">Sign up here</a>
-            to be notified about OctoBar updates.
-                    </p>
-                    <h3>(Already implemented) Features:</h3>
-                    <p>
-                        <ul>
-                            <li>View status of a running print job</li>
-                            <li>Pause/Stop print jobs</li>
-                            <li>Control tool and bed temperatures</li>
-                            <li>View webcam stream in the status bar menu</li>
-                            <li>Picture-in-Picture webcam stream</li>
-                            <li>Receive notifications on print events (Print started/stopped/paused/resumed)</li>
-                        </ul>
-                    </p>
-                    <h3>You have an idea for a new feature?</h3>
-                    <p>
-                        Use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxtuVWq87_tqAVLiIgoMo0kpxgauCCDYsbpgPaGukIC1LfpQ/viewform?usp=sf_link" rel="noopener noreferrer nofollow">Sign up form</a> to submit your thoughts.
-                    </p>
-                </div>
-            </div>
-            <div class="column">
-                <figure>
-                    <img src="{{ '/img/octobar/octobar-preferences.png' | url }}" alt="OctoBar preferences window">
-                </figure>
-            </div>
+        <p class="is-size-4 has-text-weight-bold">
+          ⏳ OctoBar is work in progress.
+          <br>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxtuVWq87_tqAVLiIgoMo0kpxgauCCDYsbpgPaGukIC1LfpQ/viewform?usp=sf_link" rel="noopener noreferrer nofollow">Sign up here</a>
+          to be notified about OctoBar updates.
+        </p>
+      </div>
+    </div>
+    <div class="columns mt-5">
+      <div class="column">
+        <div class="content">
+          <h3>Features:</h3>
+          <p>
+            <ul>
+              <li>View status of a running print job</li>
+              <li>Pause/Stop print jobs</li>
+              <li>Control tool and bed temperatures</li>
+              <li>View webcam stream in the status bar menu</li>
+              <li>Picture-in-Picture webcam stream</li>
+              <li>Receive notifications on print events (Print started/stopped/paused/resumed)</li>
+            </ul>
+          </p>
+          <h3>You have an idea for a new feature?</h3>
+          <p>
+            Use the
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxtuVWq87_tqAVLiIgoMo0kpxgauCCDYsbpgPaGukIC1LfpQ/viewform?usp=sf_link" rel="noopener noreferrer nofollow">Sign up form</a>
+            to submit your thoughts.
+          </p>
         </div>
-        
+      </div>
+      <div class="column">
+        <div class="columns">
+          <div class="column">
+            <figure>
+              <img src="{{ '/img/octobar/octobar-job.png' | url }}" alt="OctoBar control window">
+            </figure>
+            <h3 class="has-text-centered">Control OctoPrint from your status bar</h3>
+          </div>
+          <div class="column">
+            <figure>
+              <img src="{{ '/img/octobar/octobar-control.png' | url }}" alt="OctoBar control window">
+            </figure>
+            <h3 class="has-text-centered">Issue printhead movement and extrusion commands</h3>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <figure>
+              <img src="{{ '/img/octobar/octobar-temperatures.png' | url }}" alt="OctoBar control window">
+            </figure>
+            <h3 class="has-text-centered">Set target bed and tool temperatures</h3>
+          </div>
+          <div class="column">
+            <figure>
+              <img src="{{ '/img/octobar/octobar-preferences.png' | url }}" alt="OctoBar preferences window">
+            </figure>
+            <h3 class="has-text-centered">Configure notifications and more</h3>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@ tags:
   - macos
   - flxn
 iconUrl: /img/octobar/octobar-icon-light.png
-thumbnail: /img/octobar/octobar-preferences.png
+thumbnail: /img/octobar/octobar-menu.png
 url: /octobar
 layout: layouts/tool.njk
 ---
