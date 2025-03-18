@@ -111,3 +111,44 @@ layout: layouts/home.njk
         </div>
       </div>
     </section>
+
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title is-clearfix">
+          <span class="title"><i class="fas fa-layer-group"></i> Popular Slicers</span>
+        </div>
+        <div class="resource-list is-clearfix">
+          {% for resource in collections.slicers %}
+            <a href="{{ resource.data.url | url }}" target="_blank" rel="noopener nofollow">
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <img src="{{ resource.data.iconUrl | url }}" alt="{{ resource.data.title }} icon">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4 is-clearfix">
+                      {{ resource.data.title }}
+                      {% if 'flxn' in resource.data.tags %}
+                        <span class="icon is-pulled-right">⭐️</span>
+                      {% endif %}
+                    </p>
+                      <p class="subtitle is-6">{{ resource.data.subtitle }}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="content">
+                    {{ resource.data.description }}
+                  </div>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>

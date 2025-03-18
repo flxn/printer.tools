@@ -3,12 +3,14 @@
   background-size: 21px 21px;
 }
 
-.resource-list>a {
-  width: 400px;
+.resource-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .resource-list>a>.card {
-  max-width: 400px;
+  max-width: 300px;
   transition: box-shadow 0.2s;
   border-radius: 6px;
   overflow: hidden;
