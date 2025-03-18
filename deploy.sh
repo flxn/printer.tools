@@ -1,2 +1,2 @@
 #!/bin/bash
-npx eleventy && rsync -avz --delete _site/ flxn:/var/www/printer.tools
+npx eleventy && rsync -avz --delete _site/ root@$(hcloud server ip websites):/var/www/printer.tools
