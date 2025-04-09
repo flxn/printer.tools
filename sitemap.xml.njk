@@ -9,6 +9,8 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ absoluteUrl }}</loc>
     <lastmod>{{ page.date | htmlDateString }}</lastmod>
+    <changefreq>{{ page.data.changeFreq or "monthly" }}</changefreq>
+    <priority>{{ page.data.priority or "0.5" }}</priority>
   </url>
 {%- endfor %}
 </urlset>

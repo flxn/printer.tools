@@ -2,35 +2,45 @@
 layout: layouts/base.njk
 templateClass: tmpl-tool
 ---
+<article>
+  <header>
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <div class="tool-description">{{ description }}</div>
+    {% endif %}
+    {% if tags %}
+    <div class="tags">
+      {% for tag in tags %}
+        <a href="/tags/{{ tag | slug }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
 
-<div class="card tool-detail-card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="{{ thumbnail | url }}" alt="Screenshot of {{ title }}">
-    </figure>
+  {{ content | safe }}
+
+  {% if toolUrl %}
+  <div class="tool-cta">
+    <a href="{{ toolUrl }}" class="button is-primary" target="_blank" rel="noopener">Try {{ title }}</a>
   </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="{{ iconUrl | url }}" alt="{{ title }} icon">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-4">{{ title }}</p>
-        <p class="subtitle is-6">{{ subtitle }}</p>
-      </div>
-    </div>
+  {% endif %}
+</article>
 
-    <div class="content">
-      {{ description }}
-    </div>
-
-    <div class="content">
-      {{ content | safe }}
-    </div>
-  </div>
-  <footer class="card-footer">
-    <a href="{{ url | url }}" class="card-footer-item" target="_blank" rel="noopener nofollow"><span class="icon"><i class="fas fa-link"></i></span> Go To {{ title }}</a>
-  </footer>
-</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ title }}",
+  "description": "{{ description or metadata.description }}",
+  "applicationCategory": "3D Printing Tool",
+  "operatingSystem": "Web",
+  "url": "{{ metadata.url }}{{ page.url }}",
+  {% if toolUrl %}"downloadUrl": "{{ toolUrl }}",{% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "{{ metadata.author.name }}",
+    "url": "{{ metadata.author.url }}"
+  },
+  "keywords": "{{ tags | join(', ') }}"
+}
+</script>

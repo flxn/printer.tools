@@ -1,32 +1,63 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ metadata.language }}">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
+    <meta name="keywords" content="{{ metadata.keywords }}">
+    <meta name="author" content="{{ metadata.author.name }}">
+    <meta name="robots" content="index, follow">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:title" content="Printer.tools | 3D Printing Tools and Resources for Makers">
+    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://printer.tools">
-    <meta property="og:image" content="/img/icon.svg">
+    <meta property="og:url" content="{{ metadata.url }}">
+    <meta property="og:title" content="{{ title or metadata.title }}">
+    <meta property="og:description" content="{{ description or metadata.description }}">
+    <meta property="og:image" content="{{ metadata.url }}img/logo-full.png">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ metadata.url }}">
+    <meta name="twitter:title" content="{{ title or metadata.title }}">
+    <meta name="twitter:description" content="{{ description or metadata.description }}">
+    <meta name="twitter:image" content="{{ metadata.url }}img/logo-full.png">
 
-    <link rel="stylesheet" href="{{ '/css/bulma.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/all.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
-
+    <link rel="canonical" href="{{ metadata.url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
-    <meta name="theme-color" content="#fafafa">
-    <script data-ad-client="ca-pub-1287245576045785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/img/apple-touch-icon.png' | url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/img/favicon-32x32.png' | url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/img/favicon-16x16.png' | url }}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ '/css/normalize.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/bulma.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/all.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ metadata.title }}",
+      "description": "{{ metadata.description }}",
+      "url": "{{ metadata.url }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ metadata.url }}search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "{{ metadata.author.name }}",
+        "url": "{{ metadata.author.url }}"
+      }
+    }
+    </script>
   </head>
   <body>
     <header>

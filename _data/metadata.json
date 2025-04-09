@@ -1,9 +1,11 @@
 {
-  "title": "Printer.tools - 3D Printing Resources for Makers",
+  "title": "3D Printing Tools & Resources | printer.tools",
   "url": "https://printer.tools/",
-  "description": "A collection of useful tools and resources for 3d printing",
+  "language": "en",
+  "description": "Free online tools and resources for 3D printing enthusiasts. Generate STL files, optimize your slicer settings, and find expert guides for both FDM and resin printing. Featuring QR code to STL conversion, printer calibration guides, and more.",
+  "keywords": "3D printing tools, STL generator, QR code to STL, slicer settings, 3D printer calibration, FDM printing, resin printing, printer optimization, 3D printing resources",
   "feed": {
-    "subtitle": "A collection of useful tools and resources for 3d printing",
+    "subtitle": "Essential tools and resources for 3D printing success",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://printer.tools/"
@@ -16,5 +18,9 @@
     "name": "Felix Stein",
     "email": "mail@flxn.de",
     "url": "https://flxn.de"
+  },
+  "social": {
+    "twitter": "flxnde",
+    "github": "flxn"
   }
 }

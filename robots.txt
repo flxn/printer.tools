@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://printer.tools/sitemap.xml
+
+# Common crawl optimization
+Disallow: /css/
+Disallow: /webfonts/
+Disallow: /*.js$
+Disallow: /*.json$

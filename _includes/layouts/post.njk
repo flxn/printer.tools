@@ -2,14 +2,50 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<h1>{{ title }}</h1>
+<article>
+  <header>
+    <h1>{{ title }}</h1>
+    {% if date %}
+    <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+    {% endif %}
+    {% if tags %}
+    <div class="tags">
+      {% for tag in tags %}
+        <a href="/tags/{{ tag | slug }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
 
-{{ content | safe }}
+  {{ content | safe }}
 
-<hr>
-<ul>
-  {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
-  {%- if nextPost %}<li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-  {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-  {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-</ul>
+  <footer>
+    <hr>
+    <nav aria-label="Post navigation">
+      {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+      {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+      <div class="post-navigation">
+        {% if previousPost %}<div class="previous">← <a href="{{ previousPost.url | url }}" rel="prev">{{ previousPost.data.title }}</a></div>{% endif %}
+        {% if nextPost %}<div class="next"><a href="{{ nextPost.url | url }}" rel="next">{{ nextPost.data.title }}</a> →</div>{% endif %}
+      </div>
+    </nav>
+  </footer>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "datePublished": "{{ date | htmlDateString }}",
+  "dateModified": "{{ page.date | htmlDateString }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ metadata.author.name }}",
+    "url": "{{ metadata.author.url }}"
+  },
+  "description": "{{ description or metadata.description }}",
+  "keywords": "{{ tags | join(', ') }}",
+  "url": "{{ metadata.url }}{{ page.url }}"
+}
+</script>

@@ -10,14 +10,57 @@ pagination:
     - posts
     - tagList
   addAllPagesToCollections: true
-layout: layouts/home.njk
+layout: layouts/base.njk
 eleventyComputed:
-  title: Tagged “{{ tag }}”
-permalink: /tags/{{ tag }}/
+  title: Posts tagged "{{ tag }}"
+  description: "Articles and resources about {{ tag }} in 3D printing"
+permalink: /tags/{{ tag | slug }}/
 ---
-<h1>Tagged “{{ tag }}”</h1>
 
-{% set postslist = collections[ tag ] %}
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | url }}">Home</a></li>
+    <li><a href="{{ '/tags/' | url }}">Tags</a></li>
+    <li aria-current="page">{{ tag }}</li>
+  </ol>
+</nav>
+
+<h1>Tagged "{{ tag }}"</h1>
+
+{% set postslist = collections[tag] %}
 {% include "postslist.njk" %}
 
 <p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Posts tagged {{ tag }}",
+  "description": "Articles and resources about {{ tag }} in 3D printing",
+  "url": "{{ metadata.url }}/tags/{{ tag | slug }}/",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ metadata.url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tags",
+        "item": "{{ metadata.url }}/tags/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ tag }}",
+        "item": "{{ metadata.url }}/tags/{{ tag | slug }}/"
+      }
+    ]
+  }
+}
+</script>
