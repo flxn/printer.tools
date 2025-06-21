@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://printer.tools/sitemap-index.xml
+Sitemap: https://printer.tools/sitemap-0.xml
+
+# Block access to admin or sensitive paths (if any)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

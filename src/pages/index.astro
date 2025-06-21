@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResourceList from '../components/ResourceList.jsx';
+import { resources, categories } from '../data/resources.js';
+
+const seoProps = {
+	title: "Printer.tools - 3D Printing Tools & Resources",
+	description: "Discover essential 3D printing tools, slicer guides, and expert-curated resources. Free QR code to STL generator, optimization guides for FDM printing, and comprehensive 3D printing software reviews.",
+	keywords: ["3D printing tools", "slicing software", "3D printer guides", "FDM printing", "QR code to STL", "Cura settings", "PrusaSlicer", "OrcaSlicer", "3D printing optimization"]
+};
+---
+
+<Layout {...seoProps}>
+	<div class="container mx-auto px-6 py-8">
+		{/* Hero Section */}
+		<div class="text-center mb-12">
+			<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+				3D Printing Tools & Resources
+			</h1>
+			<p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+				Your one-stop resource for 3D printing software tools, guides, and optimization resources
+			</p>
+		</div>
+
+		{/* Resource List */}
+		<ResourceList resources={resources} categories={categories} client:visible />
+	</div>
+</Layout>

@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { resources, categories, getResourcesByCategory } from '../data/resources.js';
+
+const seoProps = {
+	title: "3D Printing Tools by Category",
+	description: "Browse 3D printing tools and resources organized by category. Find slicing software, design tools, calibration utilities, and specialized 3D printing applications.",
+	keywords: ["3D printing categories", "slicing software", "design tools", "3D printer calibration", "modeling software", "3D printing utilities"]
+};
+---
+
+<Layout {...seoProps}>
+  <div class="container mx-auto px-6 py-8">
+    {/* Back Button */}
+    <div class="mb-4">
+      <a 
+        href="/" 
+        class="inline-flex items-center text-gray-500 hover:text-gray-900 text-sm transition-colors"
+      >
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+
+    {/* Hero Section */}
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Browse by Category
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+        Explore our curated collection of 3D printing resources organized by category.
+      </p>
+    </div>
+
+    {/* Categories Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {categories.map((category) => {
+        const categoryResources = getResourcesByCategory(category);
+        const categoryColors = {
+          'CAD Software': 'from-blue-500 to-cyan-500',
+          'Slicing Software': 'from-green-500 to-emerald-500',
+          'Model Libraries': 'from-purple-500 to-violet-500',
+          'Printer Management': 'from-orange-500 to-red-500',
+          'Books': 'from-amber-500 to-yellow-500',
+          'Hardware': 'from-gray-500 to-slate-500',
+          'Materials': 'from-pink-500 to-rose-500'
+        };
+        
+        const gradientClass = categoryColors[category as keyof typeof categoryColors] || 'from-blue-500 to-purple-500';
+        
+        return (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:scale-105 hover:shadow-xl transition-all duration-200">
+            {/* Category Icon */}
+            <div class={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${gradientClass} rounded-lg mb-4 shadow-sm`}>
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+            </div>
+            
+            {/* Category Info */}
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">{category}</h2>
+            <p class="text-gray-600 text-sm mb-4">
+              {categoryResources.length} tool{categoryResources.length !== 1 ? 's' : ''} available
+            </p>
+            
+            {/* Resource Preview */}
+            <div class="space-y-3">
+              {categoryResources.slice(0, 3).map((resource) => (
+                <a 
+                  href={`/tools/${resource.slug}`}
+                  class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
+                >
+                  <div class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                    {resource.icon ? (
+                      <img src={resource.icon} alt={resource.name} class="w-6 h-6 object-contain" />
+                    ) : (
+                      <div class="w-6 h-6 bg-gray-600 rounded flex items-center justify-center text-white font-medium text-xs">
+                        {resource.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+                  <div class="flex-grow min-w-0">
+                    <h3 class="font-medium text-gray-900 truncate group-hover:text-blue-600 transition-colors text-sm">
+                      {resource.name}
+                    </h3>
+                    <p class="text-xs text-gray-500 truncate">{resource.shortDescription}</p>
+                  </div>
+                </a>
+              ))}
+              
+              {categoryResources.length > 3 && (
+                <div class="text-right pt-2">
+                  <a 
+                    href={`/?category=${encodeURIComponent(category)}`}
+                    class="text-sm text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    View all {categoryResources.length} tools →
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</Layout>

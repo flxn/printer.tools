@@ -1,0 +1,183 @@
+---
+import '../styles/global.css';
+import { SEO } from 'astro-seo';
+
+export interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	article?: boolean;
+	noindex?: boolean;
+	canonical?: string;
+	keywords?: string[];
+}
+
+const { 
+	title = "Printer.tools - 3D Printing Tools & Resources", 
+	description = "Your one-stop resource for 3D printing software tools, guides, and optimization resources",
+	image = "/img/social-preview.png",
+	article = false,
+	noindex = false,
+	canonical,
+	keywords = ["3D printing", "3D printer tools", "slicing software", "3D printing guides", "FDM printing", "3D printing resources"]
+} = Astro.props;
+
+const siteUrl = "https://printer.tools";
+const fullTitle = title.includes("Printer.tools") ? title : `${title} | Printer.tools`;
+const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<SEO
+			title={fullTitle}
+			description={description}
+			canonical={canonicalUrl}
+			noindex={noindex}
+			openGraph={{
+				basic: {
+					title: fullTitle,
+					type: article ? "article" : "website",
+					image: imageUrl,
+					url: canonicalUrl,
+				},
+				optional: {
+					description: description,
+					siteName: "Printer.tools",
+				},
+				image: {
+					alt: `${title} - 3D Printing Tools & Resources`,
+					width: 1200,
+					height: 630,
+				},
+			}}
+			twitter={{
+				card: "summary_large_image",
+				site: "@printertools",
+				creator: "@printertools",
+				title: fullTitle,
+				description: description,
+				image: imageUrl,
+				imageAlt: `${title} - 3D Printing Tools & Resources`,
+			}}
+			extend={{
+				meta: [
+					{ name: "keywords", content: keywords.join(", ") },
+					{ name: "author", content: "Felix Stein (flxn.de)" },
+					{ name: "robots", content: noindex ? "noindex,nofollow" : "index,follow" },
+					{ name: "theme-color", content: "#1f2937" },
+					{ name: "msapplication-TileColor", content: "#1f2937" },
+					{ name: "apple-mobile-web-app-capable", content: "yes" },
+					{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+					{ name: "format-detection", content: "telephone=no" },
+					{ property: "og:locale", content: "en_US" },
+					{ property: "article:author", content: article ? "Felix Stein (flxn.de)" : undefined },
+					{ property: "article:publisher", content: article ? "https://printer.tools" : undefined },
+				].filter(meta => meta.content !== undefined),
+				link: [
+					{ rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+					{ rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+					{ rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+					{ rel: "manifest", href: "/manifest.json" },
+				],
+			}}
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": article ? "Article" : "WebSite",
+			"name": title,
+			"description": description,
+			"url": canonicalUrl,
+			"image": imageUrl,
+			"author": {
+				"@type": "Organization",
+				"name": "Printer.tools",
+				"url": siteUrl
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "Printer.tools",
+				"url": siteUrl,
+				"logo": {
+					"@type": "ImageObject",
+					"url": `${siteUrl}/icon.png`,
+					"width": 512,
+					"height": 512
+				}
+			},
+			...(article ? {
+				"headline": title,
+				"datePublished": new Date().toISOString(),
+				"dateModified": new Date().toISOString(),
+				"mainEntityOfPage": {
+					"@type": "WebPage",
+					"@id": canonicalUrl
+				}
+			} : {
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": `${siteUrl}/search?q={search_term_string}`,
+					"query-input": "required name=search_term_string"
+				}
+			})
+		})} />
+
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1287245576045785"
+     crossorigin="anonymous"></script>
+	</head>
+	<body class="min-h-screen flex flex-col bg-white body-bg">
+		<header class="bg-white border-b border-gray-200 shadow-sm">
+			<div class="container mx-auto px-6 py-4">
+				<div class="flex items-center justify-between">
+					<a href="/" class="flex items-center space-x-3 group">
+						<img src="/logo-full.png" alt="Printer.tools" class="h-8 w-auto group-hover:opacity-80 transition-opacity" />
+					</a>
+					<nav class="hidden md:flex items-center space-x-8">
+						<a href="/" class="text-gray-700 hover:text-gray-900 transition-colors font-medium">Home</a>
+						<a href="/categories" class="text-gray-700 hover:text-gray-900 transition-colors font-medium">Categories</a>
+						<a href="/about" class="text-gray-700 hover:text-gray-900 transition-colors font-medium">About</a>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="flex flex-grow container mx-auto px-6 py-8">
+			
+				<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1287245576045785"
+     data-ad-slot="1049419797"
+     data-full-width-responsive="true"></ins>
+			
+			<slot />
+						
+				<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1287245576045785"
+     data-ad-slot="1049419797"
+     data-full-width-responsive="true"></ins>
+		</main>
+		<footer class="bg-gray-50 border-t border-gray-200 py-8 mt-12">
+			<div class="container mx-auto px-6 text-center">
+				<p class="text-gray-600 text-sm">&copy; 2025 Printer.tools - Curated 3D printing resources</p>
+				<p class="text-gray-500 text-xs mt-2">
+					<a href="/privacy" class="text-gray-600 hover:text-gray-900 transition-colors">Privacy Policy</a>
+				</p>
+				<p class="text-gray-500 text-xs mt-1">
+					Made with <span class="text-red-500">&hearts;</span> by <a href="https://flxn.de" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors">Felix Stein</a>
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</body>
+</html>
