@@ -34,3 +34,5 @@ pnpm-debug.log*
 .vercel
 
 _old/
+
+.DS_Store
