@@ -45,8 +45,14 @@ html {
 }
 
 /* Dotted paper background */
-.body-bg {
+/* .body-bg {
   background-image: radial-gradient(circle, #e2e2e2 1px, transparent 1px);
   background-size: 24px 24px;
   background-position: 0 0;
+} */
+
+/* tiled image background */
+.body-bg {
+  background: url('/img/tiled-bg.png') center center repeat;
+  background-size: 48px;
 }

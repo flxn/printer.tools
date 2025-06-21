@@ -27,7 +27,7 @@ const FavoritesList = ({ favorites, resources, onToggleFavorite }) => {
             className="group relative bg-white rounded-lg p-3 shadow-sm border border-gray-200 
                      hover:border-gray-300 hover:scale-101 hover:shadow-lg transition-all duration-200"
           >
-            <a href={`/tools/${resource.slug}`} className="block">
+            <a href={resource.website ? resource.website : `/tools/${resource.slug}`} className="block">
               {/* Icon */}
               <div className="flex items-center justify-center mb-2">
                 {resource.icon ? (

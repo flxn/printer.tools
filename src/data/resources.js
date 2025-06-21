@@ -68,7 +68,7 @@ export const resources = [
     slug: 'qrcode2stl',
     category: 'Tools',
     description: 'Create custom 3D-printable tags from QR codes and Spotify codes with customizable 3D models.',
-    shortDescription: 'QR/Spotify code generator',
+    shortDescription: 'Create QR codes, Spotify codes, and Text tags for 3D printing',
     icon: '/icons/qr2stl-icon.png',
     screenshot: '/screenshots/qr2stl.png',
     website: 'https://printer.tools/qrcode2stl',
