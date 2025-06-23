@@ -1,49 +1,9 @@
+## Gridfinity Generator by Perplexing Labs
 
-# Perplexing Labs Gridfinity Generator
+**Gridfinity Generator** is a comprehensive parametric tool for creating custom Gridfinity storage solutions. This web-based generator supports multiple Gridfinity variants including Gridfinity Rebuilt, Extended, Rugged Box, GRIPS, and more specialized systems like Anylid and Multiboard.
 
-The most advanced and feature-rich Gridfinity generator available, offering professional-grade customization options and precision engineering for serious organization enthusiasts.
+The platform enables users to generate **custom-sized bins and baseplates** with extensive customization options including magnet integration, screw-together functionality, label tabs, and vase mode printing. Key features include support for M3 screw holes, thumbscrew compatibility, wall patterns, and various stacking lip styles.
 
-## Advanced Features
+Built on proven OpenSCAD foundations, the generator offers **real-time 3D preview** and direct STL downloads. Special features include the GRIPS interlocking baseplate system for large-scale organization setups and vase mode bins optimized for efficient printing.
 
-- **Parametric Design**: Full control over every dimension and parameter
-- **Custom Profiles**: Save and reuse your favorite configurations
-- **Advanced Geometry**: Support for complex shapes and custom features
-- **Professional Export**: High-quality STL files optimized for production
-- **Batch Generation**: Create multiple components simultaneously
-
-## Why Choose Perplexing Labs
-
-While other generators offer basic functionality, Perplexing Labs provides:
-- **Engineering Precision**: Exact tolerances and professional fit
-- **Advanced Options**: Features not available elsewhere
-- **Regular Updates**: Continuously improved with new features
-- **Community Driven**: Built with feedback from professional users
-- **Documentation**: Comprehensive guides and tutorials
-
-## Professional Applications
-
-Perfect for:
-- **Professional Workshops**: Industrial-grade organization
-- **Electronics Labs**: Precision component storage
-- **Medical Equipment**: Sterile, organized storage solutions
-- **Research Facilities**: Laboratory equipment organization
-- **Manufacturing**: Production line organization
-
-## Key Capabilities
-
-- **Variable Heights**: Precise control over bin dimensions
-- **Custom Dividers**: Complex internal compartment layouts
-- **Specialty Bases**: Magnetic, weighted, or adhesive options
-- **Label Integration**: Built-in labeling and identification systems
-- **Stackable Designs**: Multi-level organization systems
-
-## Getting Started
-
-1. Visit the Perplexing Labs Gridfinity page
-2. Explore the advanced parameter options
-3. Design your custom organization system
-4. Export high-quality STL files
-5. Print with precision settings
-6. Build your professional organization system
-
-Ideal for users who need more than basic Gridfinity functionality and want professional-grade organization solutions.
+The tool provides helpful resources including links to compatible magnets, recommended label makers, and comprehensive documentation. Perfect for makers seeking **flexible, parametric Gridfinity solutions** without requiring CAD software knowledge.

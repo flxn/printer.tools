@@ -114,7 +114,7 @@ export const resources = [
     shortDescription: 'Advanced Gridfinity generator',
     icon: '/icons/gridfinity-perplexinglabs-icon.png',
     screenshot: '/screenshots/gridfinity-perplexinglabs-screenshot.png',
-    website: 'https://perplexing.dev/gridfinity',
+    website: 'https://gridfinity.perplexinglabs.com',
     price: 'Free',
     platforms: ['Web'],
     tags: ['Gridfinity', 'Advanced', 'Professional', 'CAD']
@@ -218,6 +218,20 @@ export const resources = [
     price: 'Free',
     platforms: ['Web'],
     tags: ['Beginner', 'Guide', 'Community', 'Reddit']
+  },
+  {
+    id: 'simplify3d-print-quality',
+    name: 'Simplify3D Print Quality Guide',
+    slug: 'simplify3d-print-quality',
+    category: 'Online Guides',
+    description: 'In-depth guide to understanding and improving 3D print quality with practical tips and troubleshooting techniques.',
+    shortDescription: 'In-depth print quality guide',
+    icon: '/icons/simplify3d.ico',
+    screenshot: '/screenshots/simplify3d.jpeg',
+    website: 'https://www.simplify3d.com/resources/print-quality-troubleshooting/',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['Print Quality', 'Troubleshooting', 'Guide', 'Professional']
   },
 
   // CAD Software
@@ -385,7 +399,7 @@ export const resources = [
     description: 'Curated platform for high-quality 3D printable models with a focus on design and community engagement where users can also sell their designs.',
     shortDescription: '3D model platform with creator marketplace',
     icon: '/icons/myminifactory.png',
-    screenshot: '/screenshots/myminifactory.png',
+    screenshot: '/screenshots/myminifactory.jpeg',
     website: 'https://www.myminifactory.com',
     price: 'Free (paid models available)',
     platforms: ['Web'],

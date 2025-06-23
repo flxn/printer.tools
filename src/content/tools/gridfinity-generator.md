@@ -1,34 +1,7 @@
+## Gridfinity.xyz - Modular 3D Printing Storage System
 
-# Gridfinity Generator
+**Gridfinity.xyz** serves as the unofficial wiki and community hub for Gridfinity, an innovative open-source modular storage system designed specifically for workshops and maker spaces. Built on a standardized grid of 42x42x7mm units, Gridfinity offers a completely customizable organization solution that's almost entirely 3D printable.
 
-The Gridfinity Generator is the ultimate tool for creating custom components for the popular Gridfinity modular organization system. Design baseplates and bins that perfectly fit your specific storage needs.
+The platform provides access to powerful online generators from Perplexing Labs and gridfinitygenerator.com, allowing users to create custom bins, baseplates, and lids by simply inputting their desired dimensions. Originally inspired by Alexander Chappels' Assortment System and developed by Zack Freedman, Gridfinity has evolved into a thriving community-driven project released under the MIT license.
 
-## What is Gridfinity?
-
-Gridfinity is an open-source modular organization system that uses a standardized grid to create infinitely customizable storage solutions. Components snap together magnetically and can be rearranged as needed.
-
-## Key Features
-
-- **Custom Baseplates**: Generate baseplates in any grid configuration
-- **Bin Generator**: Create bins with custom heights and compartments
-- **Perfect Fit**: All components follow official Gridfinity specifications
-- **Instant Download**: Get STL files ready for immediate printing
-- **No Software**: Works entirely in your web browser
-
-## Why Choose Gridfinity
-
-- **Modular**: Rearrange your organization as needs change
-- **Magnetic**: Components stay in place but are easy to move
-- **Expandable**: Add more components over time
-- **Community**: Thousands of user-created designs available
-- **Standardized**: All components work together perfectly
-
-## Getting Started
-
-1. Visit the Gridfinity Generator
-2. Choose your baseplate size and configuration
-3. Generate custom bins for your tools and parts
-4. Print the components
-5. Enjoy perfectly organized storage!
-
-Perfect for workshops, craft rooms, electronics workbenches, and any space that needs flexible organization.
+The website features comprehensive FAQs covering printing optimization tips (including larger nozzle recommendations), assembly guidance for magnets and labels, and sourcing information for non-printable components. With its modular design philosophy and active Discord community, Gridfinity represents the ultimate free solution for workshop organization and productivity enhancement.

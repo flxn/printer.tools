@@ -1,0 +1,7 @@
+## MyMiniFactory
+
+**MyMiniFactory** is a premium 3D printing marketplace that stands out for its commitment to quality and community. Unlike other platforms, every single STL file undergoes rigorous software checks and community test printing before publication, guaranteeing 100% printable models. This curated approach eliminates failed prints and material waste, making it a trusted resource for both beginners and professionals.
+
+The platform offers an extensive library of functional, inspirational, and creative 3D models across diverse categories including miniatures, terrain, architecture, and functional objects. Creators can monetize their designs through the integrated store system, keeping 92% of sales revenue, while also utilizing innovative features like **Tribes** for subscription-based content, **FronTiers** for project funding, and the **Customizer** tool for personalized models.
+
+MyMiniFactory fosters a collaborative ecosystem where designers, makers, and enthusiasts connect through competitions, tutorials, and community engagement. The **MMF+** subscription service provides additional value with 10% discounts on premium files, exclusive deals on materials and printers, and an ad-free browsing experience, making it an essential platform for serious 3D printing enthusiasts.

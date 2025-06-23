@@ -1,41 +1,15 @@
+## ItsLitho - Free Online Lithophane Creator
 
-# ItsLitho
+**ItsLitho** is a comprehensive free online platform dedicated to creating high-quality 3D printed lithophanes. This cross-platform lithophane maker transforms ordinary images into stunning 3D models that reveal beautiful artwork when backlit.
 
-ItsLitho is the premier online tool for converting your favorite photos into beautiful 3D printable lithophanes. Create stunning translucent art pieces that reveal their hidden images when backlit.
+### Key Features
+- **Free Image-to-Lithophane Conversion**: Upload any image and convert it into a detailed 3D lithophane model
+- **Built-in Image Editor**: Adjust contrast and brightness to optimize your lithophane's appearance
+- **Multiple Shape Options**: Choose from various customizable shapes including flat, curved, and specialty forms
+- **Advanced Attributes**: Add frames, nightlight holders, lampshade attachments, and hanging hooks
+- **Color Lithophane Support**: Create vibrant color lithophanes with step-by-step guidance
+- **Real-time Preview**: See your final result with realistic lighting simulation before printing
+- **STL File Export**: Download print-ready files for immediate 3D printing
 
-## What are Lithophanes?
-
-Lithophanes are thin, translucent 3D printed pieces that display images when held up to light. The varying thickness of the material creates different levels of light transmission, revealing the original photograph in beautiful detail.
-
-## Key Features
-
-- **Easy Upload**: Simply drag and drop your photos
-- **Automatic Conversion**: Advanced algorithms optimize images for lithophane printing
-- **Multiple Formats**: Support for flat panels, curved surfaces, and lamp shades
-- **Size Customization**: Adjust dimensions to fit your needs
-- **Print Settings**: Optimized for various 3D printer types
-
-## Perfect for Gifts
-
-Lithophanes make incredibly personal and meaningful gifts:
-- **Wedding Photos**: Create memorable keepsakes
-- **Family Portraits**: Display cherished memories
-- **Pet Pictures**: Honor beloved companions
-- **Landscapes**: Capture beautiful moments
-- **Night Lights**: Functional art for children's rooms
-
-## Getting Started
-
-1. Visit ItsLitho.com
-2. Upload your favorite high-resolution photo
-3. Choose your lithophane style and size
-4. Download the STL file
-5. Print with translucent filament
-6. Enjoy your personalized art piece!
-
-## Printing Tips
-
-- Use white or natural PLA filament
-- Print with 0.2mm layer height for best detail
-- No supports needed for most designs
-- Consider a light base or frame for display
+### Complete Ecosystem
+Beyond the design tool, ItsLitho offers educational resources including detailed guides, printing tutorials, slicer settings optimization, and a curated store featuring lithophane-compatible 3D printers, filaments, and LED lighting solutions. The platform serves both beginners and experienced makers seeking to create personalized lithophane art.

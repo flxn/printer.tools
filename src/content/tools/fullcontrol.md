@@ -1,33 +1,14 @@
+## FullControl - Unconstrained 3D Printing Design
 
-# FullControl Design Library
+**FullControl** is a revolutionary Python-based toolpath design system that breaks free from conventional 3D printing workflows. Instead of the traditional CAD → STL → slice approach, FullControl allows direct design of print paths, giving users complete control over every aspect of the printing process.
 
-FullControl is a revolutionary tool that enables the generation of GCode for non-planar 3D printing. This advanced platform opens up new possibilities for creating complex geometries that traditional layer-based printing cannot achieve.
+The platform enables explicit control of printer state changes including position, speed, temperature, and extrusion settings. Users can create custom toolpaths that would be impossible with standard slicing software, opening new possibilities for complex geometries, multi-axis printing, and experimental printing techniques.
 
-## Key Features
+**Key Features:**
+- Direct G-code generation from Python scripts
+- Interactive Jupyter notebook tutorials and templates
+- Web-based parametric design interface at fullcontrol.xyz
+- Support for multi-axis printing capabilities
+- Extensive documentation and community resources
 
-- **Non-planar Printing**: Generate GCode for curved and complex surface printing
-- **Browser-based**: No installation required, works directly in your web browser
-- **Research-grade**: Developed for advanced manufacturing and research applications
-- **Custom GCode**: Full control over toolpath generation
-- **Experimental**: Cutting-edge features for pushing 3D printing boundaries
-
-## Revolutionary Approach
-
-Traditional 3D printing builds objects layer by layer in flat planes. FullControl breaks this limitation by allowing toolpaths that follow curved surfaces, enabling stronger parts, better surface finishes, and previously impossible geometries.
-
-## Use Cases
-
-- **Research Projects**: Explore new manufacturing possibilities
-- **Complex Geometries**: Print shapes impossible with traditional slicing
-- **Stronger Parts**: Follow stress lines for improved mechanical properties
-- **Surface Quality**: Achieve smooth curved surfaces without layer lines
-
-## Getting Started
-
-1. Visit the FullControl website
-2. Explore the documentation and examples
-3. Design your non-planar toolpath
-4. Export custom GCode
-5. Test on a compatible 3D printer
-
-Note: Requires understanding of GCode and advanced 3D printing concepts.
+Perfect for researchers, advanced makers, and anyone seeking to push the boundaries of additive manufacturing beyond traditional layer-based approaches.
