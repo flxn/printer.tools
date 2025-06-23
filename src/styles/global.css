@@ -54,5 +54,6 @@ html {
 /* tiled image background */
 .body-bg {
   background: url('/img/tiled-bg.png') center center repeat;
-  background-size: 48px;
+  background-size: 64px;
+  background-attachment: fixed;
 }
