@@ -10,9 +10,17 @@ const ResourceList = ({ resources, categories }) => {
   // Check for URL parameters and load favorites on component mount
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
+    
+    // Handle category parameter
     const categoryParam = urlParams.get('category');
     if (categoryParam && categories.includes(categoryParam)) {
       setSelectedCategory(categoryParam);
+    }
+    
+    // Handle search query parameter
+    const searchQuery = urlParams.get('q');
+    if (searchQuery) {
+      setSearchTerm(searchQuery);
     }
 
     // Load favorites from localStorage
@@ -121,7 +129,19 @@ const ResourceList = ({ resources, categories }) => {
               type="text"
               placeholder="Search tools, software, and resources..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => {
+                const newSearchTerm = e.target.value;
+                setSearchTerm(newSearchTerm);
+                
+                // Update URL with search term without page reload
+                const url = new URL(window.location);
+                if (newSearchTerm) {
+                  url.searchParams.set('q', newSearchTerm);
+                } else {
+                  url.searchParams.delete('q');
+                }
+                window.history.replaceState({}, '', url);
+              }}
               className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg 
                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                        placeholder-gray-500 text-gray-800"
@@ -134,7 +154,23 @@ const ResourceList = ({ resources, categories }) => {
           </div>
           <select
             value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
+            onChange={(e) => {
+              const newCategory = e.target.value;
+              setSelectedCategory(newCategory);
+              
+              // Update URL with category and preserve search term
+              const url = new URL(window.location);
+              if (newCategory !== 'All') {
+                url.searchParams.set('category', newCategory);
+              } else {
+                url.searchParams.delete('category');
+              }
+              // Keep search term if it exists
+              if (searchTerm) {
+                url.searchParams.set('q', searchTerm);
+              }
+              window.history.replaceState({}, '', url);
+            }}
             className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg 
                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                      text-gray-700 min-w-[180px]"
