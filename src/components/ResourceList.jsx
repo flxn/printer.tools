@@ -210,27 +210,27 @@ const ResourceList = ({ resources, categories }) => {
                 className={`group relative bg-white rounded-xl p-4 shadow-sm border ${resource.madeByMe ? 'border-orange-200' : 'border-gray-200'} 
                          hover:shadow-md ${resource.madeByMe ? 'hover:border-orange-300' : 'hover:border-gray-200'} hover:scale-105 hover:shadow-xl transition-all duration-200`}
               >
-                <a
-                  href={`/tools/${resource.slug}`}
-                  className="block"
-                >
-                  {/* Icon/Screenshot */}
-                  <div className="flex items-center justify-center w-12 h-12 mb-3 bg-gray-100 rounded-lg">
-                    {resource.icon ? (
-                      <img 
-                        src={resource.icon} 
-                        alt={resource.name} 
-                        className="w-8 h-8 object-contain" 
-                      />
-                    ) : (
-                      <div className="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white font-medium text-sm">
-                        {resource.name.charAt(0)}
-                      </div>
-                    )}
-                  </div>
+                {/* Icon/Screenshot */}
+                <div className="flex items-center justify-center w-12 h-12 mb-3 bg-gray-100 rounded-lg">
+                  {resource.icon ? (
+                    <img 
+                      src={resource.icon} 
+                      alt={resource.name} 
+                      className="w-8 h-8 object-contain" 
+                    />
+                  ) : (
+                    <div className="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white font-medium text-sm">
+                      {resource.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
 
-                  {/* Content */}
-                  <div className="space-y-2">
+                {/* Content */}
+                <div className="space-y-2">
+                  <a
+                    href={`/tools/${resource.slug}`}
+                    className="block"
+                  >
                     <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors text-sm pr-6">
                       {resource.name}
                     </h3>
@@ -238,20 +238,27 @@ const ResourceList = ({ resources, categories }) => {
                     <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
                       {resource.shortDescription || resource.description}
                     </p>
+                  </a>
 
-                    {/* Price only (category is now in section header) */}
-                    <div className="flex items-center justify-between pt-1">
-                      {resource.website && (
-                      <a href={resource.website} target="_blank" rel="noopener noreferrer" className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors">
+                  {/* Price and Website Button */}
+                  <div className="flex items-center justify-between pt-1">
+                    {resource.website && (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.open(resource.website, '_blank', 'noopener,noreferrer');
+                        }}
+                        className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors"
+                      >
                         Visit Website
-                      </a>
-                      )}
-                      <span className={`text-xs font-medium ${resource.price === 'Free' ? 'text-green-600' : 'text-gray-700'}`}>
-                        {resource.price}
-                      </span>
-                    </div>
+                      </button>
+                    )}
+                    <span className={`text-xs font-medium ${resource.price === 'Free' ? 'text-green-600' : 'text-gray-700'}`}>
+                      {resource.price}
+                    </span>
                   </div>
-                </a>
+                </div>
 
                 {/* Favorite Button */}
                 <button
