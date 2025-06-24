@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { resources, categories, getResourcesByCategory } from '../data/resources.js';
-import { Image } from 'astro:assets';
 
 const seoProps = {
 	title: "3D Printing Tools by Category",
@@ -75,7 +74,7 @@ const seoProps = {
                 >
                   <div class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
                     {resource.icon ? (
-                      <Image loading="lazy" height={48} width={48} src={resource.icon} alt={resource.name} class="w-6 h-6 object-contain" />
+                      <img src={resource.icon} alt={resource.name} class="w-6 h-6 object-contain" />
                     ) : (
                       <div class="w-6 h-6 bg-gray-600 rounded flex items-center justify-center text-white font-medium text-xs">
                         {resource.name.charAt(0)}

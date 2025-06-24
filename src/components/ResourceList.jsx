@@ -213,14 +213,10 @@ const ResourceList = ({ resources, categories }) => {
                 {/* Icon/Screenshot */}
                 <div className="flex items-center justify-center w-12 h-12 mb-3 bg-gray-100 rounded-lg">
                   {resource.icon ? (
-                    <img
-                      loading="lazy"
-                      height={48}
-                      width={48}
+                    <img 
                       src={resource.icon} 
                       alt={resource.name} 
-                      className="w-8 h-8 object-contain"
-                      decoding="async"
+                      className="w-8 h-8 object-contain" 
                     />
                   ) : (
                     <div className="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white font-medium text-sm">

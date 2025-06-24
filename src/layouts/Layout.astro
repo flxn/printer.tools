@@ -1,8 +1,6 @@
 ---
-import { Image } from 'astro:assets';
 import '../styles/global.css';
 import { SEO } from 'astro-seo';
-import headerLogo from '../assets/logo-full.png';
 
 export interface Props {
 	title?: string;
@@ -139,7 +137,7 @@ const imageUrl = new URL(image, siteUrl).toString();
 			<div class="container mx-auto px-6 py-4">
 				<div class="flex items-center justify-between">
 					<a href="/" class="flex items-center space-x-3 group">
-						<Image src={headerLogo} loading="lazy" height={64} alt="Printer.tools" class="h-8 w-auto group-hover:opacity-80 transition-opacity" />
+						<img src="/logo-full.png" alt="Printer.tools" class="h-8 w-auto group-hover:opacity-80 transition-opacity" />
 					</a>
 					<nav class="hidden md:flex items-center space-x-8">
 						<a href="/" class="text-gray-700 hover:text-gray-900 transition-colors font-medium">Home</a>
