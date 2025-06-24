@@ -3,6 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import ResourceList from '../components/ResourceList.jsx';
 import { resources, categories } from '../data/resources.js';
 
+// For images in the public folder, we'll optimize them differently
+// You can either:
+// 1. Keep them as-is (they're already optimized for web)
+// 2. Use a different image optimization service
+// 3. Move them to src/assets and import them
+
+// For now, let's add some optimization attributes to the existing images
+const processedResources = resources.map(resource => ({
+  ...resource,
+  // Add optimization hint for the React component
+  shouldOptimize: true
+}));
+
 const seoProps = {
 	title: "Printer.tools - 3D Printing Tools & Resources",
 	description: "Discover essential 3D printing tools, slicer guides, and expert-curated resources. Free QR code to STL generator, optimization guides for FDM printing, and comprehensive 3D printing software reviews.",
@@ -23,7 +36,7 @@ const seoProps = {
 		</div>
 
 		{/* Resource List */}
-		<ResourceList resources={resources} categories={categories} client:visible />
+		<ResourceList resources={processedResources} categories={categories} client:visible />
 
 		{/* Tips Section */}
 		<div class="mt-16 bg-gray-50 rounded-lg p-6 border border-gray-200">

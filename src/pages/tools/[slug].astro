@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import FavoriteButton from '../../components/FavoriteButton.jsx';
 import { resources } from '../../data/resources.js';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   return resources.map(resource => ({
@@ -62,7 +63,10 @@ const seoProps = {
         <div class="flex-shrink-0">
           <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
             {resource.icon ? (
-              <img 
+              <Image
+                loading="lazy"
+                width={48}
+                height={48} 
                 src={resource.icon} 
                 alt={resource.name} 
                 class="w-12 h-12 object-contain" 
@@ -147,7 +151,10 @@ const seoProps = {
     {/* Screenshot - only show if available */}
     {resource.screenshot && (
       <div class="mb-6">
-        <img 
+        <Image
+          loading="lazy"
+          width={600}
+          height={400} 
           src={resource.screenshot} 
           alt={`${resource.name} screenshot`}
           class="w-full rounded-lg"

@@ -35,6 +35,8 @@ const FavoritesList = ({ favorites, resources, onToggleFavorite }) => {
                     src={resource.icon} 
                     alt={resource.name} 
                     className="w-8 h-8 object-contain" 
+                    loading="lazy"
+                    decoding="async"
                   />
                 ) : (
                   <div className="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center text-white font-medium text-sm">
