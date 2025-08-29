@@ -20,7 +20,10 @@ export default defineConfig({
 
   redirects: {
     '/posts/privacy': '/privacy',
-    '/qrcode2stl': 'https://qrcode2stl.printer.tools'
+    '/qrcode2stl': {
+      status: 301,
+      destination: 'https://qrcode2stl.printer.tools'
+    }
   },
 
   vite: {
