@@ -134,6 +134,20 @@ export const resources = [
     tags: ['Gridfinity', 'Foam', 'Kaizen', 'AI', 'Shadowbox', 'Generator']
   },
   {
+    id: 'filamentcolors',
+    name: 'Filamentcolors.xyz',
+    slug: 'filamentcolors',
+    category: 'Tools',
+    description: 'A comprehensive, community-funded filament color catalog with 3,000+ measured swatches across 200+ manufacturers. Provides real, instrument-measured colors, automatic palettes, and a color-matching tool to find the closest filaments to any target color.',
+    shortDescription: 'Measured filament colors, palettes, and color matching',
+    icon: '/icons/filamentcolors.png',
+    screenshot: '/screenshots/filamentcolors.png',
+    website: 'https://filamentcolors.xyz',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['Filament', 'Colors', 'Catalog', 'Palette', 'Color Matching']
+  },
+  {
     id: 'stlgears',
     name: 'STL Gears',
     slug: 'stlgears',
