@@ -120,6 +120,20 @@ export const resources = [
     tags: ['Gridfinity', 'Advanced', 'Professional', 'CAD']
   },
   {
+    id: 'tooltrace',
+    name: 'Tooltrace',
+    slug: 'tooltrace',
+    category: 'Tools',
+    description: 'AI-powered tool that turns a top-down photo of your tools into cut-ready layouts for shadowbox/Kaizen foam or Gridfinity inserts. Edit the outlines, then export for CNC, laser, or to order cuts.',
+    shortDescription: 'One-click tool inserts from a photo (Foam + Gridfinity)',
+    icon: '/icons/tooltrace.svg',
+    screenshot: '/screenshots/tooltrace.webp',
+    website: 'https://www.tooltrace.ai',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['Gridfinity', 'Foam', 'Kaizen', 'AI', 'Shadowbox', 'Generator']
+  },
+  {
     id: 'stlgears',
     name: 'STL Gears',
     slug: 'stlgears',
