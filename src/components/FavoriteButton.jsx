@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const FavoriteButton = ({ resourceId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [notification, setNotification] = useState(null);
+  const buttonRef = useRef(null);
 
   // Check if this resource is favorited on component mount
   useEffect(() => {
@@ -45,15 +46,147 @@ const FavoriteButton = ({ resourceId }) => {
     } else {
       favorites.push(resourceId);
       setNotification('Added to Quick Access');
+      // Also trigger Like when favoriting
+      likeIfNotAlready();
+      // Star confetti animation
+      try { launchStarConfetti(); } catch {}
     }
 
     localStorage.setItem('printerToolsFavorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
   };
 
+  // If a Like button exists for this resource and it's not liked yet, click it
+  const likeIfNotAlready = () => {
+    try {
+      const btn = document.querySelector(`[data-like-button="true"][data-resource-id="${resourceId}"]`);
+      if (!btn) return;
+      // Avoid infinite loop: only click if currently not liked
+      const aria = (btn.getAttribute('aria-label') || '').trim().toLowerCase();
+      // Only click when aria-label is exactly 'Like this tool' (not 'Unlike this tool')
+      if (aria === 'like this tool') {
+        btn.click();
+      }
+    } catch {}
+  };
+
+  // --- Star Confetti Effect ---
+  const launchStarConfetti = () => {
+    if (typeof window === 'undefined' || !buttonRef.current) return;
+
+    const rect = buttonRef.current.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2;
+    const originY = Math.max(0, rect.top) - 4;
+
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.left = '0';
+    canvas.style.top = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '9999';
+    document.body.appendChild(canvas);
+
+    const dpr = window.devicePixelRatio || 1;
+    const ctx = canvas.getContext('2d');
+
+    const resize = () => {
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+    };
+    resize();
+
+    const onResize = () => resize();
+    window.addEventListener('resize', onResize);
+
+    const particles = [];
+    const count = 22;
+    for (let i = 0; i < count; i++) {
+      const angle = -Math.PI / 2 + (Math.random() * (Math.PI / 2) - Math.PI / 4);
+      const speed = 4 + Math.random() * 3;
+      const hue = 45 + Math.random() * 30; // golden-ish
+      particles.push({
+        x: originX,
+        y: originY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.5,
+        size: 10 + Math.random() * 8,
+        alpha: 1,
+        color: `hsla(${hue}, 90%, 55%,`,
+      });
+    }
+
+    const gravity = 0.17;
+    const drag = 0.994;
+
+    const drawStar = (ctx, x, y, size, rotation, alpha, colorPrefix) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      const spikes = 5;
+      const outerRadius = size / 2;
+      const innerRadius = outerRadius * 0.5;
+      ctx.beginPath();
+      for (let i = 0; i < spikes * 2; i++) {
+        const rad = (i * Math.PI) / spikes;
+        const r = i % 2 === 0 ? outerRadius : innerRadius;
+        const px = Math.cos(rad) * r;
+        const py = Math.sin(rad) * r;
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fillStyle = `${colorPrefix} ${alpha})`;
+      ctx.fill();
+      ctx.restore();
+    };
+
+    let rafId;
+    const tick = () => {
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.vx *= drag;
+        p.vy = p.vy * drag + gravity;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rotation += p.rotSpeed;
+        p.alpha -= 0.02 + Math.random() * 0.02;
+        drawStar(ctx, p.x, p.y, p.size, p.rotation, Math.max(0, p.alpha), p.color);
+        if (
+          p.alpha <= 0 ||
+          p.x < -50 ||
+          p.x > window.innerWidth + 50 ||
+          p.y > window.innerHeight + 50
+        ) {
+          particles.splice(i, 1);
+        }
+      }
+      if (particles.length) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        cleanup();
+      }
+    };
+
+    const cleanup = () => {
+      window.removeEventListener('resize', onResize);
+      if (rafId) cancelAnimationFrame(rafId);
+      if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+    };
+
+    rafId = requestAnimationFrame(tick);
+  };
+
   return (
     <>
       <button
+        ref={buttonRef}
         onClick={toggleFavorite}
         className={`px-4 py-2 rounded-md text-sm font-medium border flex items-center ${
           isFavorite 

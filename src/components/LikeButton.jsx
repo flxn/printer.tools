@@ -294,6 +294,8 @@ const LikeButton = ({ resourceId, resourceName }) => {
         ref={buttonRef}
         onClick={toggleLike}
         disabled={isLoading}
+        data-like-button="true"
+        data-resource-id={resourceId}
         className={`px-4 py-2 rounded-md text-sm font-medium border flex items-center transition-all ${
           isLiked 
             ? 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100' 
