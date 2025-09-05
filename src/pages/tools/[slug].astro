@@ -1,7 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import FavoriteButton from '../../components/FavoriteButton.jsx';
+import LikeButton from '../../components/LikeButton.jsx';
 import { resources } from '../../data/resources.js';
+
+export const prerender = true;
 
 export async function getStaticPaths() {
   return resources.map(resource => ({
@@ -135,6 +138,7 @@ const seoProps = {
               </svg>
             </a>
             <FavoriteButton resourceId={resource.id} client:load />
+            <LikeButton resourceId={resource.slug} resourceName={resource.name} client:load />
           </div>
         </div>
       </div>

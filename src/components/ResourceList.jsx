@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FavoritesList from './FavoritesList';
+import LikeCount from './LikeCount';
 
 const ResourceList = ({ resources, categories }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -242,21 +243,26 @@ const ResourceList = ({ resources, categories }) => {
 
                   {/* Price and Website Button */}
                   <div className="flex items-center justify-between pt-1">
-                    {resource.website && (
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          window.open(resource.website, '_blank', 'noopener,noreferrer');
-                        }}
-                        className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors"
-                      >
-                        Visit Website
-                      </button>
-                    )}
-                    <span className={`text-xs font-medium ${resource.price === 'Free' ? 'text-green-600' : 'text-gray-700'}`}>
-                      {resource.price}
-                    </span>
+                    <div className="flex items-center space-x-2">
+                      {resource.website && (
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.open(resource.website, '_blank', 'noopener,noreferrer');
+                          }}
+                          className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors"
+                        >
+                          Visit Website
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <LikeCount resourceSlug={resource.slug} />
+                      <span className={`text-xs font-medium ${resource.price === 'Free' ? 'text-green-600' : 'text-gray-700'}`}>
+                        {resource.price}
+                      </span>
+                    </div>
                   </div>
                 </div>
 

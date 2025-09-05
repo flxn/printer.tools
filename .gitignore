@@ -33,6 +33,9 @@ pnpm-debug.log*
 # Local Vercel folder
 .vercel
 
+# User data (likes)
+data/likes.json
+
 _old/
 
 .DS_Store

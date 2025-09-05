@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeCount from './LikeCount';
 
 const FavoritesList = ({ favorites, resources, onToggleFavorite }) => {
   // If there are no favorites, don't render anything
