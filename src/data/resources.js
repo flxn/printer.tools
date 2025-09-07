@@ -203,6 +203,48 @@ export const resources = [
     platforms: ['Web', 'Android', 'iOS'],
     tags: ['Remote Control', 'OctoPrint', 'Monitoring', 'Mobile'],
   },
+  {
+    id: 'map2model',
+    name: 'Map2Model',
+    slug: 'map2model',
+    category: 'Tools',
+    description: 'Free web-based tool that converts real-world map data into 3D printable models. Select any area on OpenStreetMap and generate topographic terrain models with accurate elevation data, perfect for creating custom map displays, dioramas, and geographical models.',
+    shortDescription: 'Convert real maps to 3D printable terrain models',
+    icon: '/icons/map2model.png',
+    screenshot: '/screenshots/map2model.png',
+    website: 'https://map2model.com',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['Maps', 'Terrain', 'Topography', 'Generator', 'Geographic', 'OpenStreetMap']
+  },
+  {
+    id: 'topotrail',
+    name: 'TopoTrail',
+    slug: 'topotrail',
+    category: 'Tools',
+    description: 'Free online generator that creates detailed 3D printable trail maps from GPS track files (.gpx). Upload hiking, biking, or running routes and generate accurate topographic models with customizable colors for land, water, rocks, and trails, perfect for creating personalized outdoor adventure displays.',
+    shortDescription: 'Generate 3D printable trail maps from GPS tracks',
+    icon: '/icons/topotrail.png',
+    screenshot: '/screenshots/topotrail.png',
+    website: 'https://topotrail.com/generate',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['GPS', 'Trails', 'Hiking', 'Terrain', 'Generator', 'Outdoor', 'Maps']
+  },
+  {
+    id: 'formware-online-stl-repair',
+    name: 'Formware Online STL Repair',
+    slug: 'formware-online-stl-repair',
+    category: 'Tools',
+    description: 'Free web-based tool for repairing problematic STL files before 3D printing. Automatically fixes common mesh issues like holes, inverted normals, and non-manifold geometry. Supports both binary and ASCII STL formats with fast processing and automatic cleanup for reliable printing results.',
+    shortDescription: 'Free online STL file repair service',
+    icon: '/icons/formware.png',
+    screenshot: '/screenshots/formware-stlrepair.png',
+    website: 'https://www.formware.co/onlinestlrepair',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['STL', 'Repair', 'Mesh', 'Fix', 'Pre-processing', 'File Preparation']
+  },
 
   // Online Guides
   {
@@ -460,6 +502,20 @@ export const resources = [
     price: 'Free (paid models available)',
     platforms: ['Web'],
     tags: ['Models', 'Marketplace', 'Professional', '3D Assets']
+  },
+  {
+    id: 'makerworld',
+    name: 'MakerWorld',
+    slug: 'makerworld',
+    category: 'Model Libraries',
+    description: 'Bambu Lab\'s official 3D model library featuring high-quality, printer-optimized designs with detailed printing instructions and community support.',
+    shortDescription: 'Official 3D model library by Bambu Lab',
+    icon: '/icons/makerworld.png',
+    screenshot: '/screenshots/makerworld.jpeg',
+    website: 'https://makerworld.com',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['Models', 'Bambu Lab', 'Optimized', 'Community', '3D Printing']
   },
 
   // Other
