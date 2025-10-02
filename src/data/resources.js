@@ -518,6 +518,78 @@ export const resources = [
     tags: ['Models', 'Bambu Lab', 'Optimized', 'Community', '3D Printing']
   },
 
+  // AI Tools
+  {
+    id: 'adam',
+    name: 'Adam',
+    slug: 'adam',
+    category: 'AI Tools',
+    description: 'AI-native CAD platform that blends text-to-mesh creativity with parametric editing, letting makers prompt, refine dimensions, and export watertight models ready for fabrication.',
+    shortDescription: 'AI-native CAD for text-to-mesh and dimensional parts',
+    icon: '/icons/adam.png',
+    screenshot: '/screenshots/adam.png',
+    website: 'https://adam.new',
+    price: 'From $9.99/mo',
+    platforms: ['Web'],
+    tags: ['Text to CAD', 'Parametric', '3D Printing', 'AI']
+  },
+  {
+    id: 'zoo-text-to-cad',
+    name: 'Zoo Text-to-CAD',
+    slug: 'zoo-text-to-cad',
+    category: 'AI Tools',
+    description: 'Zoo Design Studio couples traditional B-rep modeling with machine-learning powered Text-to-CAD, generating production-grade solids while keeping code-based KCL edits and desktop workflows in sync.',
+    shortDescription: 'ML-powered CAD with usage-based Text-to-CAD',
+    icon: '/icons/zoo.png',
+    screenshot: '/screenshots/zoo.png',
+    website: 'https://zoo.dev/text-to-cad',
+    price: 'Free tier + usage-based',
+    platforms: ['Web', 'Windows', 'macOS', 'Linux'],
+    tags: ['Text to CAD', 'B-rep', 'Desktop App', 'API']
+  },
+  {
+    id: 'meshy-ai',
+    name: 'Meshy',
+    slug: 'meshy-ai',
+    category: 'AI Tools',
+    description: 'Meshy accelerates 3D asset creation with text and image prompts, AI-assisted retopology, texture editing, and animation tools wrapped in a collaborative web studio and API.',
+    shortDescription: 'All-in-one AI suite for generating, texturing, and animating 3D assets',
+    icon: '/icons/meshy.png',
+    screenshot: '/screenshots/meshy.jpeg',
+    website: 'https://www.meshy.ai',
+    price: 'Free tier + paid plans',
+    platforms: ['Web'],
+    tags: ['Text to 3D', 'Textures', 'Animation', 'API']
+  },
+  {
+    id: 'hyper3d',
+    name: 'Hyper3D',
+    slug: 'hyper3d',
+    category: 'AI Tools',
+    description: 'Hyper3D\'s Rodin pipeline turns photos, multiview image sets, or text prompts into animatable 3D assets with WebGPU previews, omni-directional remixes, and credit-based business tiers.',
+    shortDescription: 'Rodin AI suite for avatars, props, and multi-view 3D assets',
+    icon: '/icons/hyper3d.png',
+    screenshot: '/screenshots/hyper3d.jpeg',
+    website: 'https://hyper3d.ai',
+    price: 'From $24/mo (Creator)',
+    platforms: ['Web'],
+    tags: ['Text to 3D', 'Image to 3D', 'Avatars', 'Credits']
+  },
+  {
+    id: 'sloyd',
+    name: 'Sloyd',
+    slug: 'sloyd',
+    category: 'AI Tools',
+    description: 'Sloyd combines AI generation with a vast library of parametric templates, letting you start from text or images, tweak form with sliders, and export optimized meshes for games or printers in minutes.',
+    shortDescription: 'Hybrid AI + parametric toolset for fast 3D asset creation',
+    icon: '/icons/sloyd.png',
+    screenshot: '/screenshots/sloyd.jpeg',
+    website: 'https://www.sloyd.ai',
+    price: 'Free tier + credits',
+    platforms: ['Web'],
+    tags: ['Text to 3D', 'Templates', 'Parametric', 'Web App']
+  },
+
   // Other
   {
     id: 'octoprint',
@@ -542,6 +614,7 @@ export const categories = [
   'Books',
   'Model Libraries',
   'CAD Software',
+  'AI Tools',
   'Other'
 ];
 
