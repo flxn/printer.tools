@@ -517,6 +517,20 @@ export const resources = [
     platforms: ['Web'],
     tags: ['Models', 'Bambu Lab', 'Optimized', 'Community', '3D Printing']
   },
+  {
+    id: 'youmagine',
+    name: 'YouMagine',
+    slug: 'youmagine',
+    category: 'Model Libraries',
+    description: 'Community-driven 3D model sharing platform by MyMiniFactory, focused on RC hobbyists and makers.',
+    shortDescription: '3D model community for RC hobbyists by MyMiniFactory',
+    icon: '/icons/youmagine.png',
+    screenshot: '/screenshots/youmagine.jpeg',
+    website: 'https://youmagine.com',
+    price: 'Paid models by creators',
+    platforms: ['Web'],
+    tags: ['Models', 'Community', 'RC', 'Hobby', '3D Printing']
+  },
 
   // AI Tools
   {
