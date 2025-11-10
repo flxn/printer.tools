@@ -134,6 +134,20 @@ export const resources = [
     tags: ['Gridfinity', 'Foam', 'Kaizen', 'AI', 'Shadowbox', 'Generator']
   },
   {
+    id: 'machineblocks',
+    name: 'MachineBlocks',
+    slug: 'machineblocks',
+    category: 'Tools',
+    description: 'Online building block editor optimized for 3D printing LEGO-compatible bricks. Generate customizable 3MF/STL models with precision fit, built-in calibration tools, and API for creating custom brick designs.',
+    shortDescription: 'Generate custom LEGO-compatible bricks for 3D printing',
+    icon: '/icons/machineblocks.png',
+    screenshot: '/screenshots/machineblocks.png',
+    website: 'https://machineblocks.com',
+    price: 'Free',
+    platforms: ['Web'],
+    tags: ['Generator', 'LEGO®', 'Bricks', 'Parametric', 'Educational']
+  },
+  {
     id: 'filamentcolors',
     name: 'Filamentcolors.xyz',
     slug: 'filamentcolors',
