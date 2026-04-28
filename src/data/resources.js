@@ -316,6 +316,20 @@ export const resources = [
     price: 'Free',
     platforms: ['Web'],
     tags: ['Print Quality', 'Troubleshooting', 'Guide', 'Professional']
+    },
+    {
+      id: 'awesome-3d-printing',
+      name: 'Awesome 3D Printing',
+      slug: 'awesome-3d-printing',
+      category: 'Online Guides',
+      description: 'Curated GitHub list of notable 3D printing software, tools, models, communities, and learning resources in one place.',
+      shortDescription: 'Curated GitHub list of 3D printing resources',
+      icon: '/icons/awesome-3d-printing.png',
+      screenshot: '/screenshots/awesome-3d-printing.png',
+      website: 'https://github.com/ad-si/awesome-3d-printing',
+      price: 'Free',
+      platforms: ['Web', 'GitHub'],
+      tags: ['Guide', 'Curated List', 'Community', 'GitHub', 'Open Source']
   },
 
   // CAD Software
@@ -652,4 +666,63 @@ export const getResourceBySlug = (slug) => {
 
 export const getResourcesByCategory = (category) => {
   return resources.filter(resource => resource.category === category);
+};
+
+export const slugify = (value) => {
+  return value
+    .toString()
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+
+export const getAllTags = () => {
+  return [...new Set(resources.flatMap(resource => resource.tags || []))]
+    .sort((a, b) => a.localeCompare(b));
+};
+
+export const getResourcesByTag = (tag) => {
+  return resources.filter(resource =>
+    (resource.tags || []).some(resourceTag => slugify(resourceTag) === slugify(tag))
+  );
+};
+
+export const getResourceScore = (resource, reference) => {
+  if (resource.slug === reference.slug) return -1;
+
+  const sharedTags = (resource.tags || []).filter(tag =>
+    (reference.tags || []).some(referenceTag => slugify(referenceTag) === slugify(tag))
+  ).length;
+
+  const sharedPlatforms = (resource.platforms || []).filter(platform =>
+    (reference.platforms || []).includes(platform)
+  ).length;
+
+  const sameCategory = resource.category === reference.category ? 4 : 0;
+  const samePriceType = resource.price === reference.price ? 1 : 0;
+
+  return sameCategory + sharedTags * 2 + sharedPlatforms + samePriceType;
+};
+
+export const getRelatedResources = (reference, limit = 4) => {
+  return resources
+    .map(resource => ({
+      ...resource,
+      relevanceScore: getResourceScore(resource, reference)
+    }))
+    .filter(resource => resource.relevanceScore > 0)
+    .sort((a, b) => b.relevanceScore - a.relevanceScore || a.name.localeCompare(b.name))
+    .slice(0, limit);
+};
+
+export const getFreeResources = () => {
+  return resources.filter(resource => resource.price === 'Free');
+};
+
+export const getBeginnerResources = () => {
+  return resources.filter(resource =>
+    resource.level === 'beginner' ||
+    (resource.tags || []).some(tag => ['beginner', 'beginner friendly', 'education', 'guide'].includes(tag.toLowerCase()))
+  );
 };

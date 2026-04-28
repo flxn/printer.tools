@@ -16,6 +16,9 @@ export default defineConfig({
   integrations: [react(), sitemap({
     customPages: [
       'https://printer.tools/qrcode2stl',
+      'https://printer.tools/free-3d-printing-tools',
+      'https://printer.tools/popular',
+      'https://printer.tools/compare/cura-vs-prusaslicer-vs-orcaslicer',
     ]
   }), icon()],
 

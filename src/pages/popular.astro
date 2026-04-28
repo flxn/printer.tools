@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ResourceGrid from '../components/ResourceGrid.astro';
+import SeoJsonLd from '../components/SeoJsonLd.astro';
+import { resources } from '../data/resources.js';
+import { breadcrumbSchema, itemListSchema } from '../utils/structured-data';
+
+const highlighted = resources.filter(resource => resource.madeByMe);
+const popularSeeds = [
+  'cura',
+  'prusa-slicer',
+  'orcaslicer',
+  'printables',
+  'thingiverse',
+  'freecad',
+  'teaching-tech-calibration',
+  'gridfinity-generator',
+  'qrcode2stl',
+  'octoprint',
+  'bambu-studio',
+  'makerworld'
+];
+const popularResources = popularSeeds.map(slug => resources.find(resource => resource.slug === slug)).filter(Boolean);
+const title = 'Popular 3D Printing Resources';
+const description = 'Frequently useful 3D printing resources from printer.tools: slicers, model libraries, CAD tools, calibration guides, and practical generators.';
+---
+
+<Layout title={title} description={description} keywords={['popular 3D printing tools', 'best 3D printing resources', '3D printer software']}>
+  <SeoJsonLd data={breadcrumbSchema([{ name: 'Home', url: '/' }, { name: title, url: '/popular' }])} />
+  <SeoJsonLd data={itemListSchema(title, description, '/popular', popularResources)} />
+
+  <div class="container mx-auto px-6 py-8">
+    <Breadcrumbs items={[{ label: title }]} />
+
+    <section class="mb-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-red-700">Commonly reached for</p>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-950 md:text-5xl">Popular 3D printing resources</h1>
+      <p class="mt-4 max-w-3xl text-base leading-relaxed text-gray-600">
+        A hand-picked front shelf for tools makers tend to look for first: slicers, calibration references, model libraries, CAD apps, and a few utilities that solve oddly specific jobs.
+      </p>
+    </section>
+
+    {highlighted.length > 0 && (
+      <section class="mb-8 rounded-xl border border-orange-200 bg-orange-50 p-5">
+        <h2 class="text-lg font-semibold text-orange-950">Built around printer.tools</h2>
+        <p class="mt-1 text-sm text-orange-900">These are tools from this little ecosystem, not just outbound links.</p>
+        <div class="mt-4">
+          <ResourceGrid resources={highlighted} />
+        </div>
+      </section>
+    )}
+
+    <ResourceGrid resources={popularResources} />
+  </div>
+</Layout>

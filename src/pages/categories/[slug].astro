@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ResourceGrid from '../../components/ResourceGrid.astro';
+import SeoJsonLd from '../../components/SeoJsonLd.astro';
+import { categories, getResourcesByCategory, slugify } from '../../data/resources.js';
+import { breadcrumbSchema, itemListSchema } from '../../utils/structured-data';
+
+export const prerender = true;
+
+const categoryNotes = {
+  'Tools': 'Small, focused utilities that solve one specific printing problem: generating labels, repairing STL files, making gears, building Gridfinity inserts, and more.',
+  'Slicers': 'Slicers turn models into printer instructions. This page keeps the main options close together so you can compare platforms, difficulty, and workflow fit.',
+  'Online Guides': 'Good guides save filament. These resources cover calibration, print quality, beginner setup, and troubleshooting without burying you in forum archaeology.',
+  'Books': 'Long-form references and learning material for makers who prefer a structured path.',
+  'Model Libraries': 'Places to find printable models, functional parts, community projects, and paid creator work.',
+  'CAD Software': 'CAD and 3D modeling tools for designing your own parts, from browser-based beginner tools to professional parametric workflows.',
+  'AI Tools': 'AI-assisted model generation, text-to-CAD, image-to-3D, and hybrid parametric tools that can speed up early design exploration.',
+  'Other': 'Useful 3D printing resources that do not fit neatly into the main buckets.'
+};
+
+export async function getStaticPaths() {
+  return categories.map(category => ({
+    params: { slug: slugify(category) },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props;
+const categoryResources = getResourcesByCategory(category);
+const title = `${category} for 3D Printing`;
+const description = `${categoryResources.length} curated ${category.toLowerCase()} for 3D printing, with quick notes on pricing, platforms, and what each resource is good for.`;
+---
+
+<Layout title={title} description={description} keywords={[category, '3D printing', '3D printer tools', 'maker resources']}>
+  <SeoJsonLd data={breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Categories', url: '/categories' },
+    { name: category, url: `/categories/${slugify(category)}` }
+  ])} />
+  <SeoJsonLd data={itemListSchema(title, description, `/categories/${slugify(category)}`, categoryResources)} />
+
+  <div class="container mx-auto px-6 py-8">
+    <Breadcrumbs items={[{ label: 'Categories', href: '/categories' }, { label: category }]} />
+
+    <section class="mb-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-950 md:text-5xl">{category} for 3D printing</h1>
+      <p class="mt-4 max-w-3xl text-base leading-relaxed text-gray-650 md:text-lg">
+        {categoryNotes[category] || description}
+      </p>
+      <p class="mt-4 text-sm text-gray-500">{categoryResources.length} resource{categoryResources.length === 1 ? '' : 's'} listed.</p>
+    </section>
+
+    <ResourceGrid resources={categoryResources} />
+  </div>
+</Layout>

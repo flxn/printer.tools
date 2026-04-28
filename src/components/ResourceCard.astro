@@ -1,0 +1,37 @@
+---
+const { resource, compact = false } = Astro.props;
+---
+
+<article class={`group relative bg-white rounded-xl border ${resource.madeByMe ? 'border-orange-200' : 'border-gray-200'} p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg`}>
+  <a href={`/tools/${resource.slug}`} class="block">
+    <div class="flex items-start gap-3">
+      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-100">
+        {resource.icon ? (
+          <img src={resource.icon} alt="" class="h-8 w-8 object-contain" loading="lazy" />
+        ) : (
+          <span class="text-sm font-semibold text-gray-700">{resource.name.charAt(0)}</span>
+        )}
+      </div>
+      <div class="min-w-0 flex-1">
+        <div class="flex items-center gap-2">
+          <h3 class="text-sm font-semibold text-gray-950 group-hover:text-blue-700">{resource.name}</h3>
+          {resource.madeByMe && <span class="rounded-full bg-orange-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-orange-700">Built here</span>}
+        </div>
+        <p class={`${compact ? 'line-clamp-2' : 'line-clamp-3'} mt-1 text-xs leading-relaxed text-gray-600`}>
+          {resource.shortDescription || resource.description}
+        </p>
+      </div>
+    </div>
+  </a>
+  <div class="mt-4 flex flex-wrap items-center gap-2">
+    <a href={`/categories/${resource.category.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`} class="rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-medium text-blue-700 hover:bg-blue-100">
+      {resource.category}
+    </a>
+    <span class={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${resource.price === 'Free' ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-700'}`}>
+      {resource.price}
+    </span>
+    {resource.platforms?.slice(0, 2).map((platform) => (
+      <span class="rounded-full bg-gray-100 px-2.5 py-1 text-[11px] text-gray-600">{platform}</span>
+    ))}
+  </div>
+</article>

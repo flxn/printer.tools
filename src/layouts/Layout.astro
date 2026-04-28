@@ -115,8 +115,6 @@ const imageUrl = new URL(image, siteUrl).toString();
 			},
 			...(article ? {
 				"headline": title,
-				"datePublished": new Date().toISOString(),
-				"dateModified": new Date().toISOString(),
 				"mainEntityOfPage": {
 					"@type": "WebPage",
 					"@id": canonicalUrl

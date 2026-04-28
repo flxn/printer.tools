@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ResourceGrid from '../components/ResourceGrid.astro';
+import SeoJsonLd from '../components/SeoJsonLd.astro';
+import { getFreeResources } from '../data/resources.js';
+import { breadcrumbSchema, itemListSchema } from '../utils/structured-data';
+
+const freeResources = getFreeResources();
+const title = 'Free 3D Printing Tools';
+const description = 'A practical list of free 3D printing tools: slicers, CAD apps, STL repair utilities, model libraries, calibration guides, generators, and printer management software.';
+---
+
+<Layout title={title} description={description} keywords={['free 3D printing tools', 'free slicer', 'free CAD for 3D printing', 'STL tools']}>
+  <SeoJsonLd data={breadcrumbSchema([{ name: 'Home', url: '/' }, { name: title, url: '/free-3d-printing-tools' }])} />
+  <SeoJsonLd data={itemListSchema(title, description, '/free-3d-printing-tools', freeResources)} />
+
+  <div class="container mx-auto px-6 py-8">
+    <Breadcrumbs items={[{ label: title }]} />
+
+    <section class="mb-8 overflow-hidden rounded-2xl border border-green-200 bg-white shadow-sm">
+      <div class="grid gap-6 p-6 md:grid-cols-[1.2fr_0.8fr] md:p-8">
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-green-700">No-card-required shelf</p>
+          <h1 class="text-3xl font-bold tracking-tight text-gray-950 md:text-5xl">Free 3D printing tools that are actually useful</h1>
+          <p class="mt-4 max-w-3xl text-base leading-relaxed text-gray-600">
+            Free does not always mean lightweight. This list includes slicers, model sources, CAD tools, repair utilities, and small generators you can use without turning tool selection into a weekend project.
+          </p>
+        </div>
+        <div class="rounded-xl bg-green-50 p-5 text-sm leading-relaxed text-green-950">
+          <strong>{freeResources.length} free resources</strong> are currently listed. Some tools may offer paid upgrades, but every resource here has a usable free path according to the current directory data.
+        </div>
+      </div>
+    </section>
+
+    <ResourceGrid resources={freeResources} />
+  </div>
+</Layout>

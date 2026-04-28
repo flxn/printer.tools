@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ResourceGrid from '../../components/ResourceGrid.astro';
+import SeoJsonLd from '../../components/SeoJsonLd.astro';
+import { getAllTags, getResourcesByTag, slugify } from '../../data/resources.js';
+import { breadcrumbSchema, itemListSchema } from '../../utils/structured-data';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return getAllTags().map(tag => ({
+    params: { slug: slugify(tag) },
+    props: { tag }
+  }));
+}
+
+const { tag } = Astro.props;
+const tagResources = getResourcesByTag(tag);
+const title = `${tag} 3D Printing Tools`;
+const description = `Curated 3D printing resources tagged ${tag}, including software, guides, and web tools worth checking before your next print.`;
+const siblingTags = getAllTags().filter(item => item !== tag).slice(0, 14);
+---
+
+<Layout title={title} description={description} keywords={[tag, '3D printing tools', '3D printing resources']}>
+  <SeoJsonLd data={breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Tags', url: '/tags' },
+    { name: tag, url: `/tags/${slugify(tag)}` }
+  ])} />
+  <SeoJsonLd data={itemListSchema(title, description, `/tags/${slugify(tag)}`, tagResources)} />
+
+  <div class="container mx-auto px-6 py-8">
+    <Breadcrumbs items={[{ label: 'Tags', href: '/tags' }, { label: tag }]} />
+
+    <section class="mb-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">Tag shelf</p>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-950 md:text-5xl">{tag} tools and resources</h1>
+      <p class="mt-4 max-w-3xl text-base leading-relaxed text-gray-600">
+        A focused list of resources connected to <strong>{tag}</strong>. Useful when you already know the kind of problem you are trying to solve and want fewer tabs open.
+      </p>
+    </section>
+
+    <ResourceGrid resources={tagResources} />
+
+    <section class="mt-10 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+      <h2 class="mb-3 text-lg font-semibold text-gray-950">Nearby tags</h2>
+      <div class="flex flex-wrap gap-2">
+        {siblingTags.map((siblingTag) => (
+          <a href={`/tags/${slugify(siblingTag)}`} class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700">
+            {siblingTag}
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

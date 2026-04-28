@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getAllTags, getResourcesByTag, slugify } from '../../data/resources.js';
+
+const tags = getAllTags().map(tag => ({ tag, count: getResourcesByTag(tag).length }));
+---
+
+<Layout title="3D Printing Tool Tags" description="Browse printer.tools by topic: Gridfinity, slicers, CAD, STL repair, calibration, AI, model libraries, and more.">
+  <div class="container mx-auto px-6 py-8">
+    <Breadcrumbs items={[{ label: 'Tags' }]} />
+
+    <section class="mb-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">Browse by topic</p>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-950 md:text-5xl">3D printing tags</h1>
+      <p class="mt-4 max-w-3xl text-base leading-relaxed text-gray-600">
+        Tags are the fast path when category names are too broad. Jump straight to Gridfinity, STL repair, text-to-CAD, calibration, open-source tools, and other practical corners of the maker workflow.
+      </p>
+    </section>
+
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {tags.map(({ tag, count }) => (
+        <a href={`/tags/${slugify(tag)}`} class="flex items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
+          <span class="font-medium text-gray-900">{tag}</span>
+          <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-600">{count}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
