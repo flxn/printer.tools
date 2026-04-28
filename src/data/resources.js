@@ -321,7 +321,7 @@ export const resources = [
       id: 'awesome-3d-printing',
       name: 'Awesome 3D Printing',
       slug: 'awesome-3d-printing',
-      category: 'Online Guides',
+      category: 'Other',
       description: 'Curated GitHub list of notable 3D printing software, tools, models, communities, and learning resources in one place.',
       shortDescription: 'Curated GitHub list of 3D printing resources',
       icon: '/icons/awesome-3d-printing.png',
@@ -329,7 +329,7 @@ export const resources = [
       website: 'https://github.com/ad-si/awesome-3d-printing',
       price: 'Free',
       platforms: ['Web', 'GitHub'],
-      tags: ['Guide', 'Curated List', 'Community', 'GitHub', 'Open Source']
+      tags: ['Curated List', 'Community', 'GitHub', 'Open Source']
   },
 
   // CAD Software
