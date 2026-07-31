@@ -4,7 +4,7 @@
 
 It helps makers find the right resource, compare options, and save useful tools for quick access.
 
-![Printer.tools home page with search and category filters](docs/screenshots/home.jpg)
+![Printer.tools home page with search and category filters](docs/screenshots/home.png)
 
 ## What it offers
 
@@ -18,7 +18,7 @@ It helps makers find the right resource, compare options, and save useful tools 
 
 Each resource page includes a short summary, price, supported platforms, tags, and a link to the tool.
 
-![Printer.tools resource page](docs/screenshots/tool-page.jpg)
+![Printer.tools resource page](docs/screenshots/tool-page.png)
 
 ## Built with
 
