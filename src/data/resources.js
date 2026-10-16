@@ -192,6 +192,20 @@ export const resources = [
     tags: ['Gridfinity', 'Foam', 'Kaizen', 'AI', 'Shadowbox', 'Generator']
   },
   {
+    id: 'gridbox-pro',
+    name: 'Gridbox Pro',
+    slug: 'gridbox-pro',
+    category: 'Tools',
+    description: 'Desktop app that designs Gridfinity bins, baseplates sized to your drawer, and shadowboxes traced from a photo of your tools. Check the fit with digital calipers before you print, and pieces bigger than your print bed split to fit. Shared project files open with every setting, ready to change.',
+    shortDescription: 'Gridfinity bins, baseplates and shadowboxes from a photo',
+    icon: '/icons/gridbox-pro.png',
+    screenshot: '/screenshots/gridbox-pro.webp',
+    website: 'https://gridboxpro.com',
+    price: 'Free to try, $150 once unlocks export',
+    platforms: ['Windows', 'macOS'],
+    tags: ['Gridfinity', 'Shadowbox', 'Generator', 'Organization', 'Workshop']
+  },
+  {
     id: 'machineblocks',
     name: 'MachineBlocks',
     slug: 'machineblocks',
